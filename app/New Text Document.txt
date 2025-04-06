@@ -1,0 +1,16 @@
+page.tsx devmode
+
+I've made several improvements to handle the "email rate limit exceeded" error:
+Added specific error handling for rate limit errors in the signup API with a more user-friendly message.
+Created a development mode toggle (enabled in your .env file) that:
+Bypasses email verification entirely
+Uses the admin API to create pre-confirmed user accounts
+Shows a visual indicator on both signup and login pages
+Updated the UI to show clearer messages when rate limits are hit.
+Fixed the Next.js config warning by removing the deprecated optimizeFonts option.
+The dev mode is especially useful for local development as it lets you:
+Create users without triggering emails
+Avoid hitting rate limits
+Test the full authentication flow without waiting for confirmation emails
+In production, you would set NEXT_PUBLIC_DEV_MODE=false or remove it completely to ensure real email verification takes place.
+Try the signup process again - with dev mode enabled, you should be able to create accounts without hitting the email rate limit.
